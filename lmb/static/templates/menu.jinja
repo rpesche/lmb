@@ -1,0 +1,31 @@
+<SCRIPT src="ajax/ajax.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="ajax/menu.js" type="text/javascript"></SCRIPT>
+
+<HTML>
+    <META http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <HEAD>
+        <TITLE>MONOBASKET - Le site de gestion et de statistique du monobasket</TITLE>
+        <LINK rel="stylesheet" type="text/css" href="styles/global.css">
+    </HEAD>
+
+    <BODY>
+        <DIV class="menu">
+            <TABLE>
+                <TR>
+                        <TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'index.php';">Accueil</DIV></TD>
+                        <TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'joueurs.php';">Les joueurs</DIV></TD>
+                        <TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'equipes.php';">Les Equipes</DIV></TD>
+                        <TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'ligue.php?id=10';">LMB 2017-18</DIV></TD>
+                        <TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'ligues.php';">Les autres ligues</DIV></TD>
+                        <TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'aide.php';">Aide d'utilisation</DIV></TD>
+
+                </TR>
+            </TABLE>
+        </DIV>
+
+        <DIV class="menuLogin" id="menu.login">
+        </DIV>
+
+
+        <SCRIPT type="text/javascript">chargeLogin();</SCRIPT>
