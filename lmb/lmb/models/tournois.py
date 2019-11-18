@@ -1,6 +1,6 @@
 from django.db.models import Model, CharField, DateField, IntegerField, ForeignKey, CASCADE, UniqueConstraint
 
-from .monobasket import Equipe, Joueurecord
+from .monobasket import Equipe, Joueur
 
 
 class Match(Model):

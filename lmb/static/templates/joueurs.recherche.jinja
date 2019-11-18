@@ -1,3 +1,4 @@
+
 <SCRIPT type="text/javascript">
     IMAGEUPLOADDIR = 'images_upload';
     CHRONORAFRAICHISSEMENT = 10;
@@ -30,19 +31,19 @@ Trop de résultats (494) : Affinez votre recherche
             <TD class="tableau_recherche_td">{{ joueur.prenom }}</TD> <!-- TODO prenom (prenom nom) -->
             <TD class="tableau_recherche_td">{{ joueur.naissance }}</TD>
             <TD class="tableau_recherche_td">{{ joueur.sexe }}</TD>
-            {% for nom, color, id in joueur.equipes %}
+            {% for equipe in joueur.equipes %}
                 <TD class="tableau_recherche_td">
 
-                        <A href="equipe.php?id={{ id }}" target="_blank">
+                        <A href="equipe.php?id={{ equipe.id }}" target="_blank">
                             <B>
-                                <FONT color="#{{ color }}">
-                                    {{ nom }}
+                                <FONT color="#{{ equipe.color }}">
+                                    {{ equipe.nom }}
                                 </FONT>
                             </B>
                         </A>
                 </TD>
             {% endfor %}
-            <TD class="tableau_recherche_td"><IMG class="image_a_cliquer" onmouseover="this.style.cursor='pointer'" onclick="afficheJoueur(244);" src="images/validation.jpg"></IMG></TD>
+            <TD class="tableau_recherche_td"><IMG class="image_a_cliquer" onmouseover="this.style.cursor='pointer'" onclick="afficheJoueur(244);" src="{{ static(images/validation.jpg) }}"></IMG></TD>
         </TR>
     {% endfor %}
 
