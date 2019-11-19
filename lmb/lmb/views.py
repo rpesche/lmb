@@ -10,6 +10,13 @@ from lmb.models.tournois import Participant
 class JoueursView(View):
 
     def get(self, request):
+        template = get_template('joueurs.jinja')
+        return HttpResponse(template.render())
+
+
+class JoueursRechercheView(View):
+
+    def post(self, request):
 
         joueurs = Joueur.objects.order_by('prenom').all()[:25]
 

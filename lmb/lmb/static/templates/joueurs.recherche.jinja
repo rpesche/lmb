@@ -32,18 +32,18 @@ Trop de résultats (494) : Affinez votre recherche
             <TD class="tableau_recherche_td">{{ joueur.prenom }}</TD> <!-- TODO prenom (prenom nom) -->
             <TD class="tableau_recherche_td">{{ joueur.naissance }}</TD>
             <TD class="tableau_recherche_td">{{ joueur.sexe }}</TD>
-            {% for equipe in joueur.equipes %}
-                <TD class="tableau_recherche_td">
+            <TD class="tableau_recherche_td">
+                {% for equipe in joueur.equipes %}
 
-                        <A href="equipe.php?id={{ equipe.id }}" target="_blank">
-                            <B>
-                                <FONT color="#{{ equipe.color }}">
-                                    {{ equipe.nom }}
-                                </FONT>
-                            </B>
-                        </A>
-                </TD>
-            {% endfor %}
+                            <A href="equipe.php?id={{ equipe.id }}" target="_blank">
+                                <B>
+                                    <FONT color="#{{ equipe.couleur_base }}">
+                                        {{ equipe.nom }}
+                                    </FONT>
+                                </B>
+                            </A>
+                {% endfor %}
+            </TD>
             <TD class="tableau_recherche_td"><IMG src="{% static "images/validation.jpg"  %}"></IMG></TD>
         </TR>
     {% endfor %}

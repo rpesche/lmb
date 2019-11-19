@@ -1,10 +1,49 @@
-<!--<?php-->
+{% load static %}
 
-<!--include_once 'menu.php';-->
 
-<!--?>-->
 
-<SCRIPT src="ajax/joueurs.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">
+RACINE = '';
+</SCRIPT>
+<SCRIPT type="text/javascript">
+IMAGEUPLOADDIR = 'images_upload';
+CHRONORAFRAICHISSEMENT = 10;
+ACTIONTYPEGENERIQUE = 0;
+ACTIONTYPESHOOT = 1;
+ACTIONTYPEFAUTE = 2;
+ACTIONTYPEPASSE = 3;
+ACTIONTYPEREBOND = 4;
+ACTIONTYPECONTRE = 5;
+MATCHRESULTATEQUIPE1 = 1;
+MATCHRESULTATEQUIPE2 = 2;
+MATCHRESULTATNUL = 3;
+</SCRIPT>
+
+<SCRIPT src="{% static "ajax/ajax.js" %}" type="text/javascript"></SCRIPT>
+<SCRIPT src="{% static "ajax/menu.js" %}" type="text/javascript"></SCRIPT>
+
+<HTML>
+    <META http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <HEAD>
+        <TITLE>MONOBASKET - Le site de gestion et de statistique du monobasket</TITLE>
+        <LINK rel="stylesheet" type="text/css" href="{% static "styles/global.css" %}">
+    </HEAD>
+
+    <BODY>
+        <DIV class="menu">
+            <TABLE>
+                <TR>
+                    <TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'index.php';">Accueil</DIV></TD><TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'joueurs.php';">Les joueurs</DIV></TD><TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'equipes.php';">Les Equipes</DIV></TD><TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'ligue.php?id=12';">LMB 2018-19</DIV></TD><TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'ligues.php';">Les autres ligues</DIV></TD><TD><DIV onmouseover="this.style.cursor='pointer'" onclick="window.location.href = 'aide.php';">Aide d'utilisation</DIV></TD>                </TR>
+            </TABLE>
+        </DIV>
+
+        <DIV class="menuLogin" id="menu.login">
+        </DIV>
+
+
+        <!--<SCRIPT type="text/javascript">chargeLogin();</SCRIPT>-->
+        <SCRIPT src="{% static "ajax/joueurs.js" %}" type="text/javascript"></SCRIPT>
 
 <DIV class="corps">
     <DIV class="pleineLargeur">
@@ -15,28 +54,16 @@
 
     <DIV class="pleineLargeur">
         <DIV class="texte">
-
-            Chercher un joueur :
-            <INPUT class="champTexte" id="joueurs.recherche.joueur" type="text" maxlength="255" size="8" oninput="chargeListeJoueurs();">
-            <BR/>
-
-            <DIV id="joueurs.liste" class="texte"></DIV>
-            <DIV id="joueurs.message" class="texte"></DIV>
-            <BR/>
-
-            <!--if (isset($utilisateur_en_cours) && $utilisateur_en_cours->get("droits") >= 3)-->
-            <!--{-->
-                <!--print ("<DIV class=\"champ_a_cliquer\" id=\"joueurs.creation.joueur\" onmouseover=\"this.style.cursor='pointer'\" onclick=\"creeJoueur();\">Ajout d'un nouveau joueur</DIV>");    -->
-            <!--}-->
-
-        </DIV>
+            Chercher un joueur : <INPUT class="champTexte" id="joueurs.recherche.joueur" type="text" maxlength="255" size="8" oninput="chargeListeJoueurs();"><BR/><DIV id="joueurs.liste" class="texte"></DIV><DIV id="joueurs.message" class="texte"></DIV><BR/>        </DIV>
     </DIV>
 
-<!--<?php-->
+        <DIV class="piedDePage">
+            <BR/>
+            Copyright Julien Perrot 2013
+        </DIV>
+    </BODY>
+<HTML>
 
-<!--include_once 'pied_de_page.php';-->
-
-<!--?>-->
 
 
 <!-- Chargement des diverses parties de la page -->
