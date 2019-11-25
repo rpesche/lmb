@@ -44,7 +44,9 @@ Trop de résultats (494) : Affinez votre recherche
                             </A>
                 {% endfor %}
             </TD>
-            <TD class="tableau_recherche_td"><IMG src="{% static "images/validation.jpg"  %}"></IMG></TD>
+            <TD class="tableau_recherche_td">
+                <IMG class="image_a_cliquer" onmouseover="this.style.cursor='pointer'" onclick="afficheJoueur({{ joueur.id }});" src="{% static "images/validation.jpg" %}"></IMG>
+            </TD>
         </TR>
     {% endfor %}
 

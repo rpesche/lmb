@@ -1,4 +1,5 @@
 from django.db.models import Model, CharField, DateField, IntegerField, ForeignKey, CASCADE, UniqueConstraint
+from django.db.models import Count
 
 from .monobasket import Equipe, Joueur
 
@@ -37,3 +38,14 @@ class Participant(Model):
     class Meta:
         db_table = 'monobasket_formation_joueur'
         unique_together = (('formation_id', 'joueur_id'),)
+
+
+def get_match_played_by_team(joueur):
+
+    infos = (Participant.objects.filter(joueur=joueur)
+                                .select_related('formation')
+                                .select_related('formation__match')
+                                .values('formation__equipe__nom')
+                                .annotate(nb_match=Count('formation__match__id'))
+                                .values_list('formation__equipe', 'nb_match'))
+    return {(equipe_id, {'played': played}) for equipe_id, played in infos}

@@ -1,0 +1,66 @@
+{% load static %}
+
+
+{% include "menu.jinja" %}
+<!--include_once ($RACINE . 'utils/Tableur.php');-->
+
+<SCRIPT src="{% static "ajax/joueur.js" %}" type="text/javascript"></SCRIPT>
+
+<DIV class="corps">
+    <DIV class="pleineLargeur">
+        <DIV class="titre">
+            {{ fullname }}
+            <BR/>
+
+
+            <IMG id="joueur.photo" class="image_grande" src="{% static photo_path %}"></IMG>
+            <INPUT id="joueur.id" type="hidden" value="{{ joueur.id }}">
+
+        </DIV>
+    </DIV>
+
+    <DIV class="pleineLargeur">
+        <DIV class="texte">
+            <DIV id="joueur.stats.joueur" class="texte">
+                <DIV class="soustitre">Equipes</DIV>
+                    <table class="tableau_recherche">
+                        <TBODY>
+                            <TR class="tableau_recherche_tr">
+                                <TH class="tableau_recherche_th">Equipe</TH>
+                                <TH class="tableau_recherche_th">Matchs joués</TH>
+                                <TH class="tableau_recherche_th">Matchs gagnés</TH>
+                                <TH class="tableau_recherche_th">Matchs nuls</TH>
+                                <TH class="tableau_recherche_th">Matchs perdus</TH>
+                                <TH class="tableau_recherche_th">Matchs en attente</TH>
+                                <TH class="tableau_recherche_th"><B>Total</B></TH>
+                            </TR>
+
+                            {% for equipe, played, win, nul, lost, waiting, total in equipe_infos %}
+                                <TR class="tableau_recherche_tr">
+                                    <TD class="tableau_recherche_td">
+                                        <a href="equipe.php?id={{ equipe.id }}" target="_blank">
+                                            <b>
+                                                <font color="#{{ equipe.couleur_base }}">
+                                                    {{ equipe.nom }}
+                                                </font>
+                                            </b>
+                                        </a>
+                                    </TD>
+                                    <TD class="tableau_recherche_td">{{ played }}</TD>
+                                    <TD class="tableau_recherche_td">{{ win }}</TD>
+                                    <TD class="tableau_recherche_td">{{ nul }}</TD>
+                                    <TD class="tableau_recherche_td">{{ lost }}</TD>
+                                    <TD class="tableau_recherche_td">{{ waiting }}</TD>
+                                    <TD class="tableau_recherche_td"><B>{{ total }}</B></TD>
+                                </TR>
+                            {% endfor %}
+
+                        </TBODY>
+                    </table>
+            </DIV>
+        </DIV>
+</DIV>
+
+<!--include_once 'pied_de_page.php';-->
+
+<!--?>-->
